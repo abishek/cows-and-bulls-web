@@ -9,6 +9,8 @@
   :dependencies [[org.clojure/clojure "1.10.0"]
                  [org.clojure/clojurescript "1.10.773"]]
 
+  :plugins [[lein-cljsbuild "1.1.8"]]
+
   :source-paths ["src"]
 
   :aliases {"fig"       ["trampoline" "run" "-m" "figwheel.main"]
@@ -16,10 +18,17 @@
             "fig:min"   ["run" "-m" "figwheel.main" "-O" "advanced" "-bo" "dev"]
             "fig:test"  ["run" "-m" "figwheel.main" "-co" "test.cljs.edn" "-m" "rohabini.test-runner"]}
 
+  :cljsbuild {
+              :builds [{
+                        :source-paths ["src"]
+                        :compiler {
+                                   :output-to "docs/js/main.js"
+                                   :optimizations :whitespace
+                                   :pretty-print false }}]}
+
   :profiles {:dev {:dependencies [[com.bhauman/figwheel-main "0.2.15"]
                                   [com.bhauman/rebel-readline-cljs "0.1.4"]]
                    
                    :resource-paths ["target"]
                    ;; need to add the compiled assets to the :clean-targets
                    :clean-targets ^{:protect false} ["target"]}})
-
