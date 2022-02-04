@@ -16,7 +16,7 @@
                       </a>
                   </div>
                   <div class="ml-10 space-x-4">
-                      <a tabindex="7" href="#" class="inline-block bg-blue-500 py-2 px-4 border border-transparent rounded-md text-base font-medium text-white hover:bg-opacity-75">Help</a>
+                      <a tabindex="7" href="help.html" class="inline-block bg-blue-500 py-2 px-4 border border-transparent rounded-md text-base font-medium text-white hover:bg-opacity-75">Help</a>
                   </div>
               </div>
           </nav>
@@ -34,13 +34,13 @@
               </button>
           </div>
           <div class="mt-8 w-auto hidden" id="play">
-              <div class="grid grid-cols-3 gap-4">
-                  <div id="game-area" class="flex flex-col items-center col-span-1">
-                      <div class="mt-4 flex flex-row divide-x divide-slate-200 border-b-2">
-                          <input tabindex="1" type="text" min="1" max="9" maxlength=1 autocomplete="off" name="d01" id="d01" class="focus:ring-0 focus:border-blue-500 block w-full pr-10 sm:text-sm text-center border-0 border-b-1 border-gray-300">
-                          <input tabindex="2" type="text" min="1" max="9" maxlength=1 autocomplete="off" name="d02" id="d02" class="focus:ring-0 focus:border-blue-500 block w-full pr-10 sm:text-sm text-center border-0 border-b-1 border-gray-300">
-                          <input tabindex="3" type="text" min="1" max="9" maxlength=1 autocomplete="off" name="d03" id="d03" class="focus:ring-0 focus:border-blue-500 block w-full pr-10 sm:text-sm text-center border-0 border-b-1 border-gray-300">
-                          <input tabindex="4" type="text" min="1" max="9" maxlength=1 autocomplete="off" name="d04" id="d04" class="focus:ring-0 focus:border-blue-500 block w-full pr-10 sm:text-sm text-center border-0 border-b-1 border-gray-300">
+              <div class="grid md:grid-cols-3 grid-cols-1 md:gap-4">
+                  <div id="game-area" class="flex flex-col items-center md:col-span-1">
+                      <div class="mt-4 flex flex-row">
+                          <input tabindex="1" type="number" min="1" max="9" maxlength=1 autocomplete="off" name="d01" id="d01" class="focus:ring-0 focus:border-blue-500 block w-full p-4 sm:text-sm text-center border-1 border-gray-300">
+                          <input tabindex="2" type="number" min="1" max="9" maxlength=1 autocomplete="off" name="d02" id="d02" class="focus:ring-0 focus:border-blue-500 block w-full p-4 sm:text-sm text-center border-1 border-gray-300">
+                          <input tabindex="3" type="number" min="1" max="9" maxlength=1 autocomplete="off" name="d03" id="d03" class="focus:ring-0 focus:border-blue-500 block w-full p-4 sm:text-sm text-center border-1 border-gray-300">
+                          <input tabindex="4" type="number" min="1" max="9" maxlength=1 autocomplete="off" name="d04" id="d04" class="focus:ring-0 focus:border-blue-500 block w-full p-4 sm:text-sm text-center border-1 border-gray-300">
                       </div>
                       <div class="mt-8">
                           <button tabindex="5" id="guess-btn" type="button" class="inline-flex items-center px-6 py-3 border border-gray-300 shadow-sm text-base font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">
@@ -48,7 +48,7 @@
                           </button>
                       </div>
                   </div>
-                  <div id="score-board" class="col-span-2">
+                  <div id="score-board" class="md:col-span-2 mt-4">
                       <table class="min-w-full divide-y divide-gray-200">
                           <thead class="bg-gray-50">
                               <tr>

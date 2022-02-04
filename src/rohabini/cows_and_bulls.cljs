@@ -51,7 +51,9 @@
   (if success
     (and (clear-table)
          (toggle-hidden-multi ["start" "play" "success-gif"]))
-    (toggle-hidden-multi ["start" "play"])))
+    (do
+      (toggle-hidden-multi ["start" "play"])
+      (.focus (gdom/getElement "d01")))))
 
 (defn create-column
   "creates a td element with the value to be displayed."
@@ -75,7 +77,8 @@
   "create a row from the scores and append to the table."
   [entry cows bulls]
   (let [tbody-el (gdom/getElement "score-board-rows")]
-    (gdom/appendChild tbody-el (create-table-entry entry cows bulls))))
+    (gdom/appendChild tbody-el (create-table-entry entry cows bulls))
+    (.focus (gdom/getElement "d01"))))
 
 (defn fetch-guess-vector
   "collect the inputs from the user and construct a guess vector"
@@ -103,13 +106,36 @@
       (start-game true)
       (append-score-row (reduce str guess) (:cows cab) (:bulls cab)))))
 
+(defn next-el
+  "get  the next element in chain."
+  [id]
+  (cond
+    (= id "d01") "d02"
+    (= id "d02") "d03"
+    (= id "d03") "d04"
+    (= id "d04") "guess-btn"))
+
+(defn set-next-focus
+  "set the focus on the next element in chain."
+  [evt]
+  (let [id (.. evt -currentTarget -id)]
+    (.focus (gdom/getElement (next-el id)))))
+
 (defn setup
   "sets up on-click functions for the elements."
   []
   (let [start-btn (gdom/getElement "start-btn")
-        guess-btn (gdom/getElement "guess-btn")]
+        guess-btn (gdom/getElement "guess-btn")
+        d01 (gdom/getElement "d01")
+        d02 (gdom/getElement "d02")
+        d03 (gdom/getElement "d03")
+        d04 (gdom/getElement "d04")]
     (gevents/listen start-btn "click" (partial start-game false))
-    (gevents/listen guess-btn "click" try-number)))
+    (gevents/listen guess-btn "click" try-number)
+    (gevents/listen d01 "keyup" set-next-focus)
+    (gevents/listen d02 "keyup" set-next-focus)
+    (gevents/listen d03 "keyup" set-next-focus)
+    (gevents/listen d04 "keyup" set-next-focus)))
 
 (setup)
 

@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <script src="https://cdn.tailwindcss.com?plugins=forms,typography,aspect-ratio,line-clamp"></script>
+    </head>
+  <body>
+      <header class="bg-blue-600">
+          <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8" aria-label="Top">
+              <div class="w-full py-6 flex items-center justify-between border-b border-blue-500 lg:border-none">
+                  <div class="flex items-center">
+                      <a tabindex="8" href="#">
+                          <span class="sr-only">Cows & Bulls</span>
+                          <img class="h-20 w-auto" src="cows-and-bulls-logo.svg" alt="Cows & Bulls">
+                      </a>
+                  </div>
+                  <div class="ml-10 space-x-4">
+                      <a tabindex="7" href="/" class="inline-block bg-blue-500 py-2 px-4 border border-transparent rounded-md text-base font-medium text-white hover:bg-opacity-75">Play</a>
+                  </div>
+              </div>
+          </nav>
+      </header>
+      <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
+<!--
+  This example requires Tailwind CSS v2.0+
+
+  This example requires some changes to your config:
+
+  ```
+  // tailwind.config.js
+  module.exports = {
+    // ...
+    plugins: [
+      // ...
+      require('@tailwindcss/typography'),
+    ],
+  }
+  ```
+-->
+<div class="relative py-16 bg-white overflow-hidden">
+  <div class="hidden lg:block lg:absolute lg:inset-y-0 lg:h-full lg:w-full">
+    <div class="relative h-full text-lg max-w-prose mx-auto" aria-hidden="true">
+      <svg class="absolute top-12 left-full transform translate-x-32" width="404" height="384" fill="none" viewBox="0 0 404 384">
+        <defs>
+          <pattern id="74b3fd99-0a6f-4271-bef2-e80eeafdf357" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse">
+            <rect x="0" y="0" width="4" height="4" class="text-gray-200" fill="currentColor" />
+          </pattern>
+        </defs>
+        <rect width="404" height="384" fill="url(#74b3fd99-0a6f-4271-bef2-e80eeafdf357)" />
+      </svg>
+      <svg class="absolute top-1/2 right-full transform -translate-y-1/2 -translate-x-32" width="404" height="384" fill="none" viewBox="0 0 404 384">
+        <defs>
+          <pattern id="f210dbf6-a58d-4871-961e-36d5016a0f49" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse">
+            <rect x="0" y="0" width="4" height="4" class="text-gray-200" fill="currentColor" />
+          </pattern>
+        </defs>
+        <rect width="404" height="384" fill="url(#f210dbf6-a58d-4871-961e-36d5016a0f49)" />
+      </svg>
+      <svg class="absolute bottom-12 left-full transform translate-x-32" width="404" height="384" fill="none" viewBox="0 0 404 384">
+        <defs>
+          <pattern id="d3eb07ae-5182-43e6-857d-35c643af9034" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse">
+            <rect x="0" y="0" width="4" height="4" class="text-gray-200" fill="currentColor" />
+          </pattern>
+        </defs>
+        <rect width="404" height="384" fill="url(#d3eb07ae-5182-43e6-857d-35c643af9034)" />
+      </svg>
+    </div>
+  </div>
+  <div class="relative px-4 sm:px-6 lg:px-8">
+    <div class="text-lg max-w-prose mx-auto">
+      <h1>
+        <span class="block text-base text-center text-blue-600 font-semibold tracking-wide uppercase">How To Play</span>
+        <span class="mt-2 block text-3xl text-center leading-8 font-extrabold tracking-tight text-gray-900 sm:text-4xl">Cows & Bulls Game</span>
+      </h1>
+      <p class="mt-8 text-xl text-gray-500 leading-8">
+          Cows & Bulls is a <a class="text-blue-500" target="_blank" href="https://www.powerlanguage.co.uk/wordle/">wordle</a> style number game.
+          It definitely pre-dates wordle because we played this game as kids in high school &#x1F600.
+          It is a two player game. In our case, the browser is the first player. The basic premise is to guess the number that was randomly chosen by the computer player.
+          In the current version, there are no limits on the number of attempts you can take to guess the number either.
+      </p>
+    </div>
+    <div class="mt-6 prose prose-blue prose-lg text-gray-500 mx-auto">
+        <p>The rules of the game are very simple. The computer player has a 4 digit number to start the game. The user tries to guess this number.
+            Each time the computer player gives feedback on how close their chosen digits are to the actual number as <strong>cows</strong> and <strong>bulls</strong>.
+            Wikipedia has an article on this <a href="https://en.wikipedia.org/wiki/Bulls_and_Cows" target="_blank">game</a> too.
+        </p>
+        <h2>Playing the game</h2>
+        <ul role="list">
+            <li>The starting number is 4 digits wide.</li>
+            <li>Digits do not repeat themselves.</li>
+            <li>Only digits 1-9 are used. 0 is not used in this version.</li>
+            <li>When a digit is guessed correctly and is in the correct position, it is a <strong>bull</strong>.</li>
+            <li>When a digit is guessed correctly but is in the wrong position, it is a <strong>cow</strong>.</li>
+            <li>Unlike wordle, though, you do not know which digit is a cow or a bull or neither.</li>
+        </ul>
+        <p>You win when you guess 4 bulls. In this version, we do not limit the number of attempts taken to guess the number.</p>
+        <h2>Planned Upgrades</h2>
+        <p>I wrote this game to practice a bit of functional programming with clojurescript. So I made all assumptions that made the implementation simpler.</p>
+        <p>That said, I do plan to improve the following things:</p>
+        <ul role="list">
+            <li>Ability to limit the number of guesses.</li>
+            <li>Ability to increase number of digits.</li>
+            <li>Ability to include 0 in the list of digits.</li>
+            <li>Allow repeating digits.</li>
+        </ul>
+    </div>
+  </div>
+</div>
+
+      </div>
+  </body>
+</html>
