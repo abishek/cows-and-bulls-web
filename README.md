@@ -5,5 +5,5 @@ Re-creating a simple wordle style number game - Cows and Bulls - as a web app. T
 ## TODO
 
 - Update README
-- Add Help Page
+- ~~Add Help Page~~
 - Move away from Tailwindcss CDN
